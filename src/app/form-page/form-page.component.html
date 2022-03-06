@@ -1,0 +1,60 @@
+<div class="my-4">新しいタスクを登録しましょう。</div>
+
+<div>
+  <form [formGroup]="todoForm">
+    <div class="mb-2">
+      <label class="block">タイトル</label>
+      <div>
+        <input type="text" class="w-full" name="" formControlName="title" />
+      </div>
+      <div class="text-red-600" *ngIf="title.invalid && title.dirty">
+        <div *ngIf="title.hasError('required')">必須項目です。</div>
+        <div *ngIf="title.hasError('maxlength')">
+          20文字以内で入力してください。
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <label class="block">期日</label>
+      <div>
+        <input type="date" class="w-full" name="" formControlName="expire_at" />
+      </div>
+      <div class="text-red-600" *ngIf="expire_at.invalid && expire_at.dirty">
+        <div *ngIf="expire_at.hasError('required')">必須項目です。</div>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <label class="block">優先度</label>
+      <div>
+        <select name="" class="w-full" formControlName="priority">
+          <option [value]="null">選択してください</option>
+          <option value="high">High</option>
+          <option value="normal">Normal</option>
+          <option value="low">Low</option>
+        </select>
+        <div class="text-red-600" *ngIf="priority.invalid && priority.dirty">
+          <div *ngIf="priority.hasError('required')">必須項目です。</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="my-4 py-2">
+  <a
+    (click)="add()"
+    class="
+      bg-blue-500
+      hover:bg-blue-700
+      text-white
+      font-bold
+      py-2
+      px-4
+      rounded-full
+    "
+  >
+    タスクの追加
+  </a>
+</div>
