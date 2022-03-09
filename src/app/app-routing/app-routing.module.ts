@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { TopPageComponent } from '../top-page/top-page.component';
 import { FormPageComponent } from '../form-page/form-page.component';
-
+// roots
 const routes: Routes = [
   { path: '', component: TopPageComponent },
   { path: 'form', component: FormPageComponent },
